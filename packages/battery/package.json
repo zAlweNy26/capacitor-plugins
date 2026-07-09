@@ -1,6 +1,6 @@
 {
   "name": "@danyalwe/capacitor-battery",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Capacitor plugin for battery monitoring",
   "author": "danyalwe",
   "license": "MIT",
@@ -63,14 +63,6 @@
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
-  "changelogen": {
-    "output": "CHANGELOG.md",
-    "repo": "danyalwe/capacitor-plugins",
-    "templates": {
-      "commitMessage": "chore(release): capacitor-battery@{{newVersion}}",
-      "tagMessage": "capacitor-battery@{{newVersion}}"
-    }
-  },
   "capacitor": {
     "ios": {
       "src": "ios"
