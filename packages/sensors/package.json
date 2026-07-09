@@ -1,6 +1,6 @@
 {
   "name": "@danyalwe/capacitor-sensors",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Capacitor plugin for device sensors",
   "author": "danyalwe",
   "license": "MIT",
@@ -64,14 +64,6 @@
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
-  "changelogen": {
-    "output": "CHANGELOG.md",
-    "repo": "danyalwe/capacitor-plugins",
-    "templates": {
-      "commitMessage": "chore(release): capacitor-sensors@{{newVersion}}",
-      "tagMessage": "capacitor-sensors@{{newVersion}}"
-    }
-  },
   "capacitor": {
     "ios": {
       "src": "ios"
