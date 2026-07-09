@@ -1,12 +1,19 @@
 {
   "type": "module",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": ["packages/*", "playground"],
   "scripts": {
     "build": "tsdown",
     "test": "for pkg in packages/*/; do (cd \"$pkg\" && bun run test); done",
     "lint": "eslint packages/",
-    "lint:fix": "eslint packages/ --fix"
+    "lint:fix": "eslint packages/ --fix",
+    "playground:dev": "bun run --cwd playground dev",
+    "playground:build": "bun run --cwd playground build",
+    "playground:sync": "bun run --cwd playground sync",
+    "playground:open:android": "bun run --cwd playground open:android",
+    "playground:run:android": "bun run --cwd playground run:android",
+    "playground:open:ios": "bun run --cwd playground open:ios",
+    "playground:run:ios": "bun run --cwd playground run:ios"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.1.0",

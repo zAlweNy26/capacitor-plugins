@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plugin Playground</title>
+  <style>
+    *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      background: #fafafa;
+      color: #222;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    .plugins {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    section {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    section h2 {
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      background: #333;
+      color: #fff;
+    }
+
+    .results {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.75rem;
+    }
+
+    .method {
+      border: 1px solid #eee;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .method-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #666;
+      padding: 0.3rem 0.75rem;
+      background: #f4f4f4;
+      border-bottom: 1px solid #eee;
+    }
+
+    .method-body {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+
+    pre {
+      background: #2d2d2d;
+      color: #e6e6e6;
+      padding: 0.5rem;
+      overflow-x: auto;
+      font-size: 0.75rem;
+      border-radius: 4px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .error { color: #c0392b; }
+    .success { color: #27ae60; }
+    .loading { color: #888; font-style: italic; }
+    .timestamp { font-size: 0.7rem; color: #aaa; margin-top: 0.2rem; }
+
+    @media (max-width: 640px) {
+      body { padding: 0.75rem; }
+      .plugins { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Plugin Playground</h1>
+  <div class="plugins">
+    <section id="sensors">
+      <h2>Sensors</h2>
+      <div class="results"></div>
+    </section>
+    <section id="battery">
+      <h2>Battery</h2>
+      <div class="results"></div>
+    </section>
+    <section id="systeminfo">
+      <h2>System Info</h2>
+      <div class="results"></div>
+    </section>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

@@ -57,6 +57,8 @@ export class BatteryWeb extends WebPlugin implements BatteryPlugin {
     this.battery.addEventListener('levelchange', () => this.getBatteryData(), {
       signal: this.abortController.signal,
     })
+
+    this.getBatteryData()
   }
 
   async stop(): Promise<void> {
