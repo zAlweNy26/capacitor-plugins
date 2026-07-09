@@ -1,6 +1,6 @@
 {
   "name": "@danyalwe/capacitor-sensors",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Capacitor plugin for device sensors",
   "author": "danyalwe",
   "license": "MIT",

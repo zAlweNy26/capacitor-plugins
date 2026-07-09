@@ -1,6 +1,6 @@
 {
   "name": "@danyalwe/capacitor-battery",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Capacitor plugin for battery monitoring",
   "author": "danyalwe",
   "license": "MIT",

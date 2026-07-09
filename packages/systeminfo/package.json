@@ -1,6 +1,6 @@
 {
   "name": "@danyalwe/capacitor-systeminfo",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Capacitor plugin for device system information",
   "author": "danyalwe",
   "license": "MIT",
