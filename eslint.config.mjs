@@ -7,6 +7,8 @@ export default antfu({
     indent: 2,
     quotes: 'single',
   },
+  markdown: true,
+  typescript: true,
   rules: {
     'node/prefer-global/process': 'off',
     'array-bracket-spacing': 'off',

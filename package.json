@@ -7,6 +7,7 @@
     "test": "for pkg in packages/*/; do (cd \"$pkg\" && bun run test); done",
     "lint": "eslint packages/",
     "lint:fix": "eslint packages/ --fix",
+    "docgen": "for pkg in packages/*/; do (cd \"$pkg\" && bun run docgen); done",
     "playground:dev": "bun run --cwd playground dev",
     "playground:build": "bun run --cwd playground build",
     "playground:sync": "bun run --cwd playground sync",

@@ -46,6 +46,14 @@
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
+  "changelogen": {
+    "output": "CHANGELOG.md",
+    "repo": "danyalwe/capacitor-plugins",
+    "templates": {
+      "commitMessage": "chore(release): capacitor-systeminfo@{{newVersion}}",
+      "tagMessage": "capacitor-systeminfo@{{newVersion}}"
+    }
+  },
   "capacitor": {
     "ios": {
       "src": "ios"
