@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build": "tsdown",
+    "test": "for pkg in packages/*/; do (cd \"$pkg\" && bun run test); done",
+    "lint": "eslint packages/",
+    "lint:fix": "eslint packages/ --fix"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^9.1.0",
+    "changelogen": "^0.6.2",
+    "eslint": "^10.6.0",
+    "tsdown": "^0.22.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  }
+}

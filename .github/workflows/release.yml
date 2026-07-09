@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'capacitor-*@*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+      - name: Extract package info from tag
+        id: package
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          PKG_NAME=${TAG%@*}
+          FOLDER=${PKG_NAME#capacitor-}
+          echo "folder=$FOLDER" >> $GITHUB_OUTPUT
+      - name: Build and publish
+        run: |
+          cd "packages/${{ steps.package.outputs.folder }}"
+          bun run build
+          bun run test
+          bun publish
+        env:
+          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
