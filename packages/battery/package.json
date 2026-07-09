@@ -6,10 +6,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danyalwe/capacitor-plugins.git"
+    "url": "git+https://github.com/zAlweNy26/capacitor-plugins.git"
   },
   "bugs": {
-    "url": "https://github.com/danyalwe/capacitor-plugins/issues"
+    "url": "https://github.com/zAlweNy26/capacitor-plugins/issues"
   },
   "keywords": [
     "capacitor",
@@ -26,6 +26,9 @@
     "dist/",
     "ios/"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
     "verify:ios": "xcodebuild -scheme Battery -destination generic/platform=iOS",
@@ -39,7 +42,7 @@
     "build": "tsdown",
     "test": "vitest run",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
+    "release": "commit-and-tag-version --path . --tag-prefix \"capacitor-battery@\""
   },
   "peerDependencies": {
     "@capacitor/core": ">=8.0.0"

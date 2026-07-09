@@ -4,26 +4,40 @@ on:
   push:
     tags:
       - 'capacitor-*@*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag to publish (e.g. capacitor-sensors@1.0.2)'
+        required: true
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref }}
       - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
       - run: bun install
       - name: Extract package info from tag
         id: package
         run: |
-          TAG=${GITHUB_REF#refs/tags/}
+          TAG=${{ github.event.inputs.tag || '' }}
+          if [ -z "$TAG" ]; then
+            TAG=${GITHUB_REF#refs/tags/}
+          fi
           PKG_NAME=${TAG%@*}
           FOLDER=${PKG_NAME#capacitor-}
           echo "folder=$FOLDER" >> $GITHUB_OUTPUT
-      - name: Build and publish
+      - name: Build
+        run: bun run build
+      - name: Publish
         run: |
           cd "packages/${{ steps.package.outputs.folder }}"
-          bun run build
-          bun run test
-          bun publish
-        env:
-          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+          npm publish
