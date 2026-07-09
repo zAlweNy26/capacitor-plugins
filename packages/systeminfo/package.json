@@ -1,6 +1,6 @@
 {
   "name": "@danyalwe/capacitor-systeminfo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Capacitor plugin for device system information",
   "author": "danyalwe",
   "license": "MIT",
@@ -49,14 +49,6 @@
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
-  "changelogen": {
-    "output": "CHANGELOG.md",
-    "repo": "danyalwe/capacitor-plugins",
-    "templates": {
-      "commitMessage": "chore(release): capacitor-systeminfo@{{newVersion}}",
-      "tagMessage": "capacitor-systeminfo@{{newVersion}}"
-    }
-  },
   "capacitor": {
     "ios": {
       "src": "ios"
