@@ -14,11 +14,14 @@
     "playground:open:android": "bun run --cwd playground open:android",
     "playground:run:android": "bun run --cwd playground run:android",
     "playground:open:ios": "bun run --cwd playground open:ios",
-    "playground:run:ios": "bun run --cwd playground run:ios"
+    "playground:run:ios": "bun run --cwd playground run:ios",
+    "release:battery": "bun run --cwd packages/battery release",
+    "release:sensors": "bun run --cwd packages/sensors release",
+    "release:systeminfo": "bun run --cwd packages/systeminfo release"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.1.0",
-    "changelogen": "^0.6.2",
+    "commit-and-tag-version": "^12.7.3",
     "eslint": "^10.6.0",
     "tsdown": "^0.22.4",
     "typescript": "^5.9.3",
