@@ -11,9 +11,9 @@ install! 'cocoapods', :disable_input_output_paths => true
 def capacitor_pods
   pod 'Capacitor', :path => '../../../node_modules/.bun/@capacitor+ios@8.4.1+767ac80cbab8ae50/node_modules/@capacitor/ios'
   pod 'CapacitorCordova', :path => '../../../node_modules/.bun/@capacitor+ios@8.4.1+767ac80cbab8ae50/node_modules/@capacitor/ios'
-  pod 'DanyalweCapacitorBattery', :path => '../../../packages/battery'
-  pod 'DanyalweCapacitorSensors', :path => '../../../packages/sensors'
-  pod 'DanyalweCapacitorSysteminfo', :path => '../../../packages/systeminfo'
+  pod 'Battery', :path => '../../../packages/battery'
+  pod 'Sensors', :path => '../../../packages/sensors'
+  pod 'Systeminfo', :path => '../../../packages/systeminfo'
 end
 
 target 'App' do

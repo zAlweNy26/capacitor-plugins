@@ -2,7 +2,7 @@
   "name": "@danyalwe/capacitor-sensors",
   "version": "1.0.2",
   "description": "Capacitor plugin for device sensors",
-  "author": "danyalwe",
+  "author": "zAlweNy26",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -30,16 +30,14 @@
     "access": "public"
   },
   "scripts": {
-    "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
+    "verify": "bun run verify:ios && bun run verify:android",
     "verify:ios": "xcodebuild -scheme Sensors -destination generic/platform=iOS",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
-    "verify:web": "npm run build",
-    "lint": "npm run prettier -- --check && npm run swiftlint -- lint",
-    "fmt": "npm run prettier -- --write && npm run swiftlint -- --fix --format",
+    "lint": "bun run prettier -- --check && bun run swiftlint -- lint",
+    "fmt": "bun run prettier -- --write && bun run swiftlint -- --fix --format",
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\" --plugin=prettier-plugin-java",
     "swiftlint": "node-swiftlint",
     "docgen": "docgen --api SensorsPlugin --output-readme README.md --output-json dist/docs.json",
-    "build": "tsdown",
     "test": "vitest run",
     "watch": "tsc --watch",
     "release": "commit-and-tag-version --path . --tag-prefix \"capacitor-sensors@\""
@@ -58,7 +56,6 @@
     "prettier": "^3.9.5",
     "prettier-plugin-java": "^2.10.2",
     "swiftlint": "^2.0.0",
-    "tsdown": "^0.22.4",
     "typescript": "^5.9.3",
     "vitest": "^4.1.10"
   },

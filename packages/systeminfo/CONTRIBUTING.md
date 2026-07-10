@@ -7,10 +7,10 @@ This guide provides instructions for contributing to this Capacitor plugin.
 ### Local Setup
 
 1. Fork and clone the repo.
-1. Install the dependencies.
+1. Install the dependencies from the **repo root** (this plugin is part of a Bun workspace monorepo).
 
     ```shell
-    npm install
+    bun install
     ```
 
 1. Install SwiftLint if you're on macOS.
@@ -21,32 +21,34 @@ This guide provides instructions for contributing to this Capacitor plugin.
 
 ### Scripts
 
-#### `npm run build`
+#### `bun run build` (repo root)
 
-Build the plugin web assets and generate plugin API documentation using [`@capacitor/docgen`](https://github.com/ionic-team/capacitor-docgen).
+Building web assets happens once for all plugins from the **monorepo root**, not per-plugin. From the repo root, run:
 
-It will compile the TypeScript code from `src/` into ESM JavaScript in `dist/esm/`. These files are used in apps with bundlers when your plugin is imported.
+```shell
+bun run build
+```
 
-Then, Rollup will bundle the code into a single file at `dist/plugin.js`. This file is used in apps without bundlers by including it as a script in `index.html`.
+This compiles the TypeScript code from each plugin's `src/` using [tsdown](https://tsdown.dev) in workspace mode, producing ESM (`dist/index.mjs`), CJS (`dist/index.cjs`), and type declarations (`dist/index.d.mts` / `dist/index.d.cts`).
 
-#### `npm run verify`
+To generate plugin API documentation, run `bun run docgen` from the repo root (uses [`@capacitor/docgen`](https://github.com/ionic-team/capacitor-docgen)).
 
-Build and validate the web and native projects.
+#### `bun run verify`
 
-This is useful to run in CI to verify that the plugin builds for all platforms.
+Validate the native iOS and Android projects build correctly. Web build/lint/test is handled by the root CI, not this script.
 
-#### `npm run lint` / `npm run fmt`
+#### `bun run lint` / `bun run fmt`
 
-Check formatting and code quality, autoformat/autofix if possible.
+Check formatting and code quality for this plugin, autoformat/autofix if possible.
 
-This template is integrated with ESLint, Prettier, and SwiftLint. Using these tools is completely optional, but the [Capacitor Community](https://github.com/capacitor-community/) strives to have consistent code style and structure for easier cooperation.
+This checks Prettier and SwiftLint. Linting of TypeScript code (ESLint) is handled at the monorepo root via `bun run lint`.
 
 ## Publishing
 
-There is a `prepublishOnly` hook in `package.json` which prepares the plugin before publishing, so all you need to do is run:
+Publishing is automated via GitHub Actions and is not done manually with `npm publish`.
 
-```shell
-npm publish
-```
+1. From the repo root, run this plugin's release script (e.g. `bun run release:sensors`), which uses `commit-and-tag-version` to bump the version, update `CHANGELOG.md`, and create a git tag.
+1. Push the tag: `git push --follow-tags`.
+1. Pushing a tag matching `capacitor-*@*` triggers the `release.yml` GitHub Actions workflow, which builds from the repo root and publishes this plugin to npm via [trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC) — no npm token or manual `npm publish` needed.
 
 > **Note**: The [`files`](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#files) array in `package.json` specifies which files get published. If you rename files/directories or add files elsewhere, you may need to update it.
