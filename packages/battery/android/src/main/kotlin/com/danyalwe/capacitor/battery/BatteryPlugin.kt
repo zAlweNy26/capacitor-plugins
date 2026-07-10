@@ -1,7 +1,6 @@
 package com.danyalwe.capacitor.battery
 
 import android.util.Log
-import android.content.Intent
 import com.getcapacitor.JSObject
 import com.getcapacitor.Plugin
 import com.getcapacitor.PluginCall

@@ -46,6 +46,11 @@ class Connection(
         Log.d("Stop", "Connection Plugin")
     }
 
+    fun getInfos(): JSObject {
+        val obj = JSObject()
+        return obj
+    }
+
     private fun getSimData(): JSArray {
         val telephonyManager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
 

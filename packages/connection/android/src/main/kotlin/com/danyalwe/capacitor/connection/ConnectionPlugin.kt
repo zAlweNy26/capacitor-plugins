@@ -1,7 +1,7 @@
 package com.danyalwe.capacitor.connection
 
 import android.Manifest
-import android.content.Intent
+import android.os.Build
 import com.getcapacitor.PermissionState
 import com.getcapacitor.JSObject
 import com.getcapacitor.Plugin
@@ -62,6 +62,11 @@ class ConnectionPlugin : Plugin() {
     @PluginMethod
     override fun requestPermissions(call: PluginCall) {
         hasPermissions(call)
+    }
+
+    override fun removeAllListeners(call: PluginCall) {
+        implementation.stop()
+        super.removeAllListeners(call)
     }
 
     @PermissionCallback

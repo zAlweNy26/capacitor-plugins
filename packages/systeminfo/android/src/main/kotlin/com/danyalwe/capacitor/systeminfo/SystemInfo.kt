@@ -10,7 +10,6 @@ import com.getcapacitor.JSArray
 import com.getcapacitor.JSObject
 import java.util.TimeZone
 
-
 class SystemInfo(
     private val plugin: SystemInfoPlugin,
     private val context: Context
