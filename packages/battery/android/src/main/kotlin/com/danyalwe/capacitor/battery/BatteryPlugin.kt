@@ -1,5 +1,6 @@
 package com.danyalwe.capacitor.battery
 
+import android.util.Log
 import android.content.Intent
 import com.getcapacitor.JSObject
 import com.getcapacitor.Plugin
@@ -27,11 +28,13 @@ class BatteryPlugin : Plugin() {
 
     @PluginMethod
     fun start(call: PluginCall) {
+        Log.d("Start", "Battery Plugin")
         implementation.start()
     }
 
     @PluginMethod
     fun stop(call: PluginCall) {
         implementation.stop()
+        Log.d("Stop", "Battery Plugin")
     }
 }

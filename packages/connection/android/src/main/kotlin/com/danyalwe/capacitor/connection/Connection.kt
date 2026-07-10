@@ -1,20 +1,5 @@
 package com.danyalwe.capacitor.connection
 
-import android.annotation.SuppressLint
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
-import android.os.BatteryManager
-import android.util.Log
-import com.getcapacitor.JSObject
-import java.util.Timer
-import java.util.TimerTask
-import kotlin.math.abs
-import kotlin.math.max
-
-
-package com.alwe.plugins.connection
-
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
