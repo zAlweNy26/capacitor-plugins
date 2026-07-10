@@ -12,6 +12,7 @@ Monorepo of all my Capacitor plugins.
 | [`@danyalwe/capacitor-battery`](packages/battery) | [![npm](https://img.shields.io/npm/v/@danyalwe/capacitor-battery)](https://www.npmjs.com/package/@danyalwe/capacitor-battery) | Capacitor plugin for battery monitoring |
 | [`@danyalwe/capacitor-sensors`](packages/sensors) | [![npm](https://img.shields.io/npm/v/@danyalwe/capacitor-sensors)](https://www.npmjs.com/package/@danyalwe/capacitor-sensors) | Capacitor plugin for device sensors |
 | [`@danyalwe/capacitor-systeminfo`](packages/systeminfo) | [![npm](https://img.shields.io/npm/v/@danyalwe/capacitor-systeminfo)](https://www.npmjs.com/package/@danyalwe/capacitor-systeminfo) | Capacitor plugin for device system information |
+| [`@danyalwe/capacitor-connection`](packages/connection) | [![npm](https://img.shields.io/npm/v/@danyalwe/capacitor-connection)](https://www.npmjs.com/package/@danyalwe/capacitor-connection) | Capacitor plugin for network connection monitoring |
 
 ## Development
 

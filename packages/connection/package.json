@@ -1,0 +1,71 @@
+{
+  "name": "@danyalwe/capacitor-connection",
+  "version": "1.0.0",
+  "description": "Capacitor plugin for network connection monitoring",
+  "author": "zAlweNy26",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zAlweNy26/capacitor-plugins.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zAlweNy26/capacitor-plugins/issues"
+  },
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "native"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "files": [
+    "Connection.podspec",
+    "Package.swift",
+    "android/",
+    "dist/",
+    "ios/"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "verify": "bun run verify:ios && bun run verify:android",
+    "verify:ios": "xcodebuild -scheme Connection -destination generic/platform=iOS",
+    "verify:android": "cd android && ./gradlew clean build test && cd ..",
+    "lint": "bun run prettier -- --check && bun run swiftlint -- lint",
+    "fmt": "bun run prettier -- --write && bun run swiftlint -- --fix --format",
+    "prettier": "prettier \"**/*.{css,html,ts,js,java}\" --plugin=prettier-plugin-java",
+    "swiftlint": "node-swiftlint",
+    "docgen": "docgen --api ConnectionPlugin --output-readme README.md --output-json dist/docs.json",
+    "test": "vitest run",
+    "watch": "tsc --watch",
+    "release": "commit-and-tag-version --path . --tag-prefix \"capacitor-connection@\""
+  },
+  "peerDependencies": {
+    "@capacitor/core": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/core": "^8.4.1",
+    "@capacitor/docgen": "^0.3.1",
+    "@capacitor/ios": "^8.4.1",
+    "@ionic/prettier-config": "^4.0.0",
+    "@ionic/swiftlint-config": "^2.0.0",
+    "prettier": "^3.9.5",
+    "prettier-plugin-java": "^2.10.2",
+    "swiftlint": "^2.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  },
+  "prettier": "@ionic/prettier-config",
+  "swiftlint": "@ionic/swiftlint-config",
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    },
+    "android": {
+      "src": "android"
+    }
+  }
+}
