@@ -5,6 +5,7 @@
   "scripts": {
     "build": "tsdown",
     "test": "for pkg in packages/*/; do (cd \"$pkg\" && bun run test); done",
+    "typecheck": "for pkg in packages/*/; do (cd \"$pkg\" && tsc --noEmit); done",
     "lint": "eslint packages/",
     "lint:fix": "eslint packages/ --fix",
     "docgen": "for pkg in packages/*/; do (cd \"$pkg\" && bun run docgen); done",

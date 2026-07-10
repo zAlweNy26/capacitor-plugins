@@ -33,8 +33,17 @@ jobs:
             TAG=${GITHUB_REF#refs/tags/}
           fi
           PKG_NAME=${TAG%@*}
+          TAG_VERSION=${TAG##*@}
           FOLDER=${PKG_NAME#capacitor-}
           echo "folder=$FOLDER" >> $GITHUB_OUTPUT
+          echo "version=$TAG_VERSION" >> $GITHUB_OUTPUT
+      - name: Verify tag version matches package.json
+        run: |
+          PKG_VERSION=$(node -p "require('./packages/${{ steps.package.outputs.folder }}/package.json').version")
+          if [ "$PKG_VERSION" != "${{ steps.package.outputs.version }}" ]; then
+            echo "Version mismatch: tag=${{ steps.package.outputs.version }} package.json=$PKG_VERSION"
+            exit 1
+          fi
       - name: Build
         run: bun run build
       - name: Publish
