@@ -10,8 +10,6 @@ import com.getcapacitor.JSObject
 import java.util.Timer
 import java.util.TimerTask
 import kotlin.math.abs
-import kotlin.math.max
-
 
 class Battery(
     private val plugin: BatteryPlugin,

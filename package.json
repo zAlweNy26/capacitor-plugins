@@ -21,7 +21,8 @@
     "docs:preview": "bun run --cwd docs preview",
     "release:battery": "bun run --cwd packages/battery release",
     "release:sensors": "bun run --cwd packages/sensors release",
-    "release:systeminfo": "bun run --cwd packages/systeminfo release"
+    "release:systeminfo": "bun run --cwd packages/systeminfo release",
+    "release:connection": "bun run --cwd packages/connection release"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.1.0",

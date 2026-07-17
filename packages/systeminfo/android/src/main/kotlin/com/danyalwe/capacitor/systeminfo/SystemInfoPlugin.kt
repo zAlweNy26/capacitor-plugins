@@ -4,7 +4,6 @@ import android.util.Log
 import com.getcapacitor.Plugin
 import com.getcapacitor.PluginCall
 import com.getcapacitor.PluginMethod
-import com.getcapacitor.JSObject
 import com.getcapacitor.annotation.CapacitorPlugin
 import java.util.Timer
 import java.util.TimerTask
@@ -26,7 +25,7 @@ class SystemInfoPlugin : Plugin() {
 
     @PluginMethod
     fun start(call: PluginCall) {
-        Log.d("SystemInfo Plugin", "Start listening")
+        Log.d("Start", "SystemInfo Plugin")
         timer?.cancel()
         timer?.purge()
         timer = Timer("CheckUsage")
@@ -42,8 +41,8 @@ class SystemInfoPlugin : Plugin() {
 
     @PluginMethod
     fun stop(call: PluginCall) {
-        Log.d("SystemInfo Plugin", "Stop listening")
         timer?.cancel()
         timer?.purge()
+        Log.d("Stop", "SystemInfo Plugin")
     }
 }

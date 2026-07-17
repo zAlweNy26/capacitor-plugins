@@ -1,5 +1,6 @@
 package com.danyalwe.capacitor.sensors
 
+import android.util.Log
 import android.Manifest
 import android.content.Context
 import android.hardware.Sensor
@@ -121,6 +122,7 @@ class SensorsPlugin : Plugin() {
             return
         }
         
+        Log.d("Start", "Sensors Plugin")
         sensorInstance.start()
         call.resolve()
     }
@@ -143,5 +145,6 @@ class SensorsPlugin : Plugin() {
         
         sensorInstance.stop()
         call.resolve()
+        Log.d("Stop", "Sensors Plugin")
     }
 }
