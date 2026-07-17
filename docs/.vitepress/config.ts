@@ -5,6 +5,9 @@ export default defineConfig({
   description: 'A collection of Capacitor plugins by zAlweNy26',
   base: '/capacitor-plugins/',
   lastUpdated: true,
+  head: [
+    ['link', { rel: 'icon', href: '/capacitor-plugins/capacitor-icon.svg', type: 'image/svg+xml' }],
+  ],
 
   themeConfig: {
     nav: [

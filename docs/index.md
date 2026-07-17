@@ -5,6 +5,9 @@ hero:
   name: Capacitor Plugins
   text: A collection of native plugins
   tagline: Battery, sensors, and system info APIs for your Capacitor apps
+  image:
+    src: /capacitor-icon.svg
+    alt: Capacitor
   actions:
     - theme: brand
       text: Get Started
