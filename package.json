@@ -1,7 +1,7 @@
 {
   "type": "module",
   "private": true,
-  "workspaces": ["packages/*", "playground"],
+  "workspaces": ["packages/*", "playground", "docs"],
   "scripts": {
     "build": "tsdown",
     "test": "for pkg in packages/*/; do (cd \"$pkg\" && bun run test); done",
@@ -16,6 +16,9 @@
     "playground:run:android": "bun run --cwd playground run:android",
     "playground:open:ios": "bun run --cwd playground open:ios",
     "playground:run:ios": "bun run --cwd playground run:ios",
+    "docs:dev": "bun run --cwd docs dev",
+    "docs:build": "bun run --cwd docs build",
+    "docs:preview": "bun run --cwd docs preview",
     "release:battery": "bun run --cwd packages/battery release",
     "release:sensors": "bun run --cwd packages/sensors release",
     "release:systeminfo": "bun run --cwd packages/systeminfo release"

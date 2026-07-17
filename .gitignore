@@ -2,6 +2,12 @@
 dist
 node_modules
 
+# docs (generated)
+docs/.vitepress/dist
+docs/.vitepress/cache
+docs/plugins/*.md
+docs/changelog/*.md
+
 # iOS files
 Pods
 Podfile.lock
